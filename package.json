@@ -1,0 +1,32 @@
+{
+  "name": "react-native-bouncy-touchable",
+  "version": "1.0.0",
+  "description": "A bouncing touchable animated view",
+  "main": "index.js",
+  "repository": "https://github.com/tiaanduplessis/react-native-bouncy-touchable",
+  "author": "Tiaan du Plessis",
+  "license": "MIT",
+  "scripts": {
+    "lint": "standard --fix"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "standard": "^12.0.1"
+  },
+  "keywords": [
+    "react-native",
+    "bounce,",
+    "component",
+    "animated"
+  ],
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  }
+}
