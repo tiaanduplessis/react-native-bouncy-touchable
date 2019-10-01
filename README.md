@@ -13,11 +13,14 @@
 
 ## Table of Contents
 
-- [Install](#install)
-- [Usage](#usage)
-- [Credits](#credits)
-- [Contribute](#contribute)
-- [License](#License)
+- [react-native-bouncy-touchable](#react-native-bouncy-touchable)
+  - [Table of Contents](#table-of-contents)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Props](#props)
+  - [Credits](#credits)
+  - [Contribute](#contribute)
+  - [License](#license)
 
 ## Install
 
@@ -53,13 +56,44 @@ export default class Button extends Component {
 
 ## Props
 
-Name         | Type       | Description                                      | Default |
--------------|------------|--------------------------------------------------|---------|
-**onPress**  | *function* | Handler to be called when the user taps the view | noop    |
-**delay**    | *number*   | The animation delay in milliseconds              | 40      |
-**scale**    | *number*   | The max scale of animation                       | 1.1     |
-**moveSlop** | *number*   | The size of the slop area for press              | 40      |
-**style**    | *object*   | The view style                                   | none    |
+<table width="80%">
+    <tr>
+        <th>Property</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default Value</th>
+    </tr>
+    <tr>
+        <td><code>onPress</code></td>
+        <td><code>function</code></td>
+        <td>Function called when user taps the view area</td>
+        <td><code>noop</code></td>
+    </tr>
+    <tr>
+        <td><code>scale</code></td>
+        <td><code>number</code></td>
+        <td>Max scale of animation</td>
+        <td><code>1.1</code></td>
+    </tr>
+    <tr>
+        <td><code>delay</code></td>
+        <td><code>float</code></td>
+        <td>Animation delay in miliseconds</td>
+        <td><code>40</code></td>
+    </tr>
+    <tr>
+        <td><code>moveSlop</code></td>
+        <td><code>number</code></td>
+        <td>Slop area for press</td>
+        <td><code>15</code></td>
+    </tr>
+    <tr>
+        <td><code>style</code></td>
+        <td><code>object</code></td>
+        <td>Custom style for the component</td>
+        <td><code>{}</code></td>
+    </tr>
+</table>
 
 ## Credits
 
