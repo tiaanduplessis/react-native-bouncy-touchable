@@ -51,6 +51,16 @@ export default class Button extends Component {
   }
 ```
 
+## Props
+
+Name         | Type       | Description                                      | Default |
+-------------|------------|--------------------------------------------------|---------|
+**onPress**  | *function* | Handler to be called when the user taps the view | noop    |
+**delay**    | *number*   | The animation delay in milliseconds              | 40      |
+**scale**    | *number*   | The max scale of animation                       | 1.1     |
+**moveSlop** | *number*   | The size of the slop area for press              | 40      |
+**style**    | *object*   | The view style                                   | none    |
+
 ## Credits
 
 Heavily based on [react-native-bounceable](https://github.com/slavik0329/react-native-bounceable)
