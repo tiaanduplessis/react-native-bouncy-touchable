@@ -1,0 +1,15 @@
+{
+  "name": "react-native-bouncy-touchable-tests",
+  "private": true,
+  "scripts": {
+    "test": "node index.js"
+  },
+  "devDependencies": {
+    "@babel/core": "7.29.7",
+    "@babel/plugin-transform-modules-commonjs": "7.26.3",
+    "@babel/plugin-transform-react-jsx": "7.25.9",
+    "prop-types": "15.6.2",
+    "react": "16.14.0",
+    "react-test-renderer": "16.14.0"
+  }
+}

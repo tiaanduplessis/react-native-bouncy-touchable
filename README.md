@@ -101,6 +101,18 @@ Heavily based on [react-native-bounceable](https://github.com/slavik0329/react-n
 
 ## Contribute
 
+Install the pinned, isolated regression-test dependencies and run the suite:
+
+```sh
+npm --prefix test ci --ignore-scripts
+npm test
+```
+
+The suite renders the public entry point with React and mocks React Native's
+host views, animation boundary, and timers. See [test/README.md](test/README.md)
+for coverage and device-validation limitations.
+
+
 1. Fork it and create your feature branch: `git checkout -b my-new-feature`
 2. Commit your changes: `git commit -am "Add some feature"`
 3. Push to the branch: `git push origin my-new-feature`
