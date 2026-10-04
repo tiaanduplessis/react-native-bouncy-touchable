@@ -34,24 +34,41 @@ $ yarn add react-native-bouncy-touchable
 
 ## Usage
 
-```js
-export default class Button extends Component {
+Import `BouncyView` as the default export from `react-native-bouncy-touchable`.
 
-    render () {
-      return (
-            <BouncyView 
-                delay={60} // Animation delay in miliseconds
-                scale={1.1} // Max scale of animation
-                style={styles.button} 
-                onPress={this.props.onPress}
-            >
-              <Text style={styles.buttonText}>
-                {this.props.children}
-              </Text>
-            </BouncyView>
-      )
-    }
+```js
+import React, { Component } from 'react'
+import { StyleSheet, Text } from 'react-native'
+import BouncyView from 'react-native-bouncy-touchable'
+
+export default class Button extends Component {
+  render () {
+    return (
+      <BouncyView
+        delay={60} // Animation delay in milliseconds
+        scale={1.1} // Max scale of animation
+        style={styles.button}
+        onPress={this.props.onPress}
+      >
+        <Text style={styles.buttonText}>
+          {this.props.children}
+        </Text>
+      </BouncyView>
+    )
   }
+}
+
+const styles = StyleSheet.create({
+  button: {
+    padding: 16,
+    backgroundColor: '#0066cc',
+    borderRadius: 8
+  },
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center'
+  }
+})
 ```
 
 ## Props
@@ -121,4 +138,3 @@ for coverage and device-validation limitations.
 ## License
 
 MIT
-    

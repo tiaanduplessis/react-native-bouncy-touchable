@@ -25,6 +25,7 @@ boundary, animation methods, and timers are mocked. They check:
 - Retention of pooled events for delayed callbacks
 - Unmount cancellation of every pending callback and active animation
 - Wrapper structure, style precedence, children, and forwarded props
+- The README usage example's imports, rendering, styles, and forwarded props
 
 These tests do not run an iOS or Android native UI or measure frame rates.
 Native-device validation should also exercise quick taps, dragging outside the
