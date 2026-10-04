@@ -1,4 +1,5 @@
 const assert = require('assert')
+const fs = require('fs')
 const path = require('path')
 const babel = require('@babel/core')
 const React = require('react')
@@ -138,6 +139,45 @@ function assertAnimation (animation, type, scale, toValue) {
   assert.strictEqual(animation.config.useNativeDriver, true)
   assert.strictEqual(animation.started, true)
 }
+
+test('renders the README usage example with the public default export', () => {
+  const readme = fs.readFileSync(path.join(__dirname, '..', 'README.md'), 'utf8')
+  const example = readme.match(/## Usage\s+[\s\S]*?```js\n([\s\S]*?)```/)
+  assert.ok(example, 'README must contain a JavaScript usage example')
+  const { code } = babel.transformSync(example[1], {
+    babelrc: false,
+    configFile: false,
+    plugins: [
+      require.resolve('@babel/plugin-transform-modules-commonjs'),
+      require.resolve('@babel/plugin-transform-react-jsx')
+    ]
+  })
+  const app = setup()
+  let renderer
+  try {
+    const module = { exports: {} }
+    const load = new Function('require', 'module', 'exports', code) // eslint-disable-line no-new-func
+    load(name => {
+      if (name === 'react') return React
+      if (name === 'react-native') return { Text: 'Text', StyleSheet: { create: styles => styles } }
+      if (name === 'react-native-bouncy-touchable') return { __esModule: true, default: app.BouncyView }
+      throw new Error(`Unexpected example import: ${name}`)
+    }, module, module.exports)
+    const onPress = () => {}
+    renderer = TestRenderer.create(React.createElement(module.exports.default, { onPress }, 'Press me'))
+    const button = renderer.root.findByType(app.BouncyView)
+    assert.strictEqual(button.props.onPress, onPress)
+    assert.strictEqual(button.props.delay, 60)
+    assert.strictEqual(button.props.scale, 1.1)
+    assert.ok(button.props.style)
+    const text = renderer.root.findByType('Text')
+    assert.strictEqual(text.props.children, 'Press me')
+    assert.ok(text.props.style)
+  } finally {
+    if (renderer) renderer.unmount()
+    app.unmount()
+  }
+})
 
 test('creates one responder per instance before the first render without legacy lifecycle methods', () => {
   const app = setup()
